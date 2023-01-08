@@ -28,9 +28,9 @@ leapProject1.exe is in /Unity Leap Motion App/
 13. During a Base Operations mode the tip of your index finger of your right hand will be tracked 
 14. At any time during Base Operations Mode you made return to Neutral state by flattening your palm once more
 
-[h2]Goal[/h2]
+<h2>Goal</h2>
 Create a gesture recognition app for 3D model creation.
-[h2]Method[/h2]
+<h2>Method</h2>
 The classification of the data is done through pairwise AdaBoost. The weak classifiers used are
 Rubine features. 13 Rubine features were extracted from each of the 6 components of the hand
 (palm and the 5 fingers). Data from both the left and right hands are recorded but stored
@@ -68,7 +68,7 @@ rotate: with left hand's index finger pointing and right hand's all 5 fingers pi
 hand around left hand.
 scale: with both hands' index finger and thumb extended, move both hands away from each
 other horizontally.
-[h2]Results[/h2]
+<h2>Results</h2>
 A server is created to pass data from Matlab to a unity environment to visualize the tracking of
 the hands and record data. The data is then processed in Matlab. Initially, only the position of
 the palm was used for the extraction of Rubine features but when more fingers were used to
@@ -107,19 +107,21 @@ motion device. Checking for a “stop” signal, looking for different problems 
 segmenting, processing, and packaging the data rapidly second to second was a tremendous
 undertaking.
 
-[h2]List of Features[/h2]
-1:13 is rubine of palm
-14:78 is rubine of finger tips
-79 to 188 = comparison of finger positions relative to one another
-189 = mean of “is left”
-190 = mean of “is open”
-191 = mean of “extended state”
-192 = max of pinch strength
-193 = max of pinch distance
-194 = max of grabs strength
-195 = max of grab angle
-
-[h2]Rubine Features[/h2]
+<h2>List of Features</h2>
+<ol>
+<li>1:13 is rubine of palm</li>
+<li>14:78 is rubine of finger tips</li>
+<li>79 to 188 = comparison of finger positions relative to one another</li>
+<li>189 = mean of “is left”</li>
+<li>190 = mean of “is open”</li>
+<li>191 = mean of “extended state”</li>
+<li>192 = max of pinch strength</li>
+<li>193 = max of pinch distance</li>
+<li>194 = max of grabs strength</li>
+<li>195 = max of grab angle</li>
+</ol>
+<h2>Rubine Features</h2>
+<code>
 % 1st feature, cos angle of starting point
 F(1) = acos(x(3)-x(1))/sqrt((x(3)-x(1))^2 + (y(3)-y(1))^2);
 % 2nd feature, sin angle of starting point
@@ -147,4 +149,4 @@ F(11) = sum(dtheta.^2);
 F(12) = max((dx.^2 + dy.^2)./dt.^2);
 % 13th feature, duration of gesture
 F(13) = t(n-1) - t(1);
-
+</code>
